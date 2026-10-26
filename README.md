@@ -1,5 +1,7 @@
 # Lean 4 formalization: *Analytical Inversion of Kepler's Equation for All Eccentricities via Complex Operator Series: Exact Complex Boundaries, a Nonlinear Riemann–Hilbert Characterization, and Parabolic Stability*
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23659970.svg)](https://doi.org/10.5281/zenodo.23659970)
+
 This repository contains the complete Lean 4 / Mathlib formalization accompanying
 
 > S. A. Sheikh,
@@ -52,6 +54,26 @@ An automated build (GitHub Actions, see the **Actions** tab) runs on every chang
 | `lean-toolchain` | Pinned Lean version |
 | `CITATION.cff` | Citation metadata (powers GitHub's "Cite this repository" button) |
 | `.github/workflows/lean.yml` | Automated build and axiom check |
+
+## How to cite
+
+If you use this formalization, please cite it as:
+
+> S. A. Sheikh, *Lean 4 formalization of "Analytical Inversion of Kepler's Equation for All Eccentricities via Complex Operator Series: Exact Complex Boundaries, a Nonlinear Riemann–Hilbert Characterization, and Parabolic Stability,"* version 1.0 (2026), GitHub: https://github.com/sajadcosmos/KeplerInversion, archived at Zenodo, doi:[10.5281/zenodo.23659970](https://doi.org/10.5281/zenodo.23659970).
+
+BibTeX:
+
+```bibtex
+@software{sheikh_kepler_inversion_lean_2026,
+  author    = {Sheikh, Sajad Ahmad},
+  title     = {Lean 4 formalization of ``Analytical Inversion of Kepler's Equation for All Eccentricities via Complex Operator Series: Exact Complex Boundaries, a Nonlinear Riemann–Hilbert Characterization, and Parabolic Stability''},
+  version   = {1.0},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.23659970},
+  url       = {https://github.com/sajadcosmos/KeplerInversion}
+}
+```
 
 ## Contact
 
