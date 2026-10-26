@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this formalization, please cite it as below."
+type: software
+title: >-
+  Lean 4 formalization of "Analytical Inversion of Kepler's Equation for All Eccentricities via Complex Operator Series: Exact Complex Boundaries, a Nonlinear Riemann–Hilbert Characterization, and Parabolic Stability"
+authors:
+  - family-names: Sheikh
+    given-names: Sajad Ahmad
+    affiliation: >-
+      Department of Mathematics, University of Kashmir, South Campus,
+      Anantnag, 192101, Jammu and Kashmir, India
+    email: sajadsheikh@uok.edu.in
+version: "1.0"
+repository-code: "https://github.com/sajadcosmos/KeplerInversion"
+license: MIT
+keywords:
+  - Lean 4
+  - Mathlib
+  - formal verification
+  - Kepler's equation
+  - Bessel functions
+  - Riemann-Hilbert problem

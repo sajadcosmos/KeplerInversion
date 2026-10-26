@@ -1,0 +1,42 @@
+name: Lean build
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Lean (elan)
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Fetch Mathlib
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Build the formalization
+        run: lake build
+
+      - name: Check axioms of main theorems
+        run: |
+          set -o pipefail
+          printf '%s\n' \
+            'import KeplerOperatorInversion' \
+            '#print axioms Kepler.coercivity' \
+            '#print axioms Kepler.sine_coeff_keplerCorr' \
+            '#print axioms Kepler.hasSum_keplerE' \
+            '#print axioms Kepler.tendstoUniformlyOn_keplerSeries' \
+            '#print axioms Kepler.keplerOrderBound_C₀' \
+            '#print axioms Kepler.keplerExt_unique' \
+            '#print axioms Kepler.keplerE_maximal_strip' \
+            '#print axioms Kepler.abs_keplerE_sub_partial_le' \
+            '#print axioms Kepler.keplerPhi_RH_characterization' \
+            '#print axioms Kepler.forcing_stability' \
+            '#print axioms Kepler.certified_truncation' > AxiomCheck.lean
+          lake env lean AxiomCheck.lean | tee axioms.txt
+          if grep -q sorryAx axioms.txt; then echo "Found sorry"; exit 1; fi
